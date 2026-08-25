@@ -60,11 +60,13 @@ WHERE h.Name IN (
     'Elite Grand Hotel','Banadir Royal Hotel','Muqdisho Plaza Hotel','Blue Sky Hotel','Harbor View Hotel',
     'Golden Sands Hotel','Somali Star Hotel','Green Garden Hotel','Central Park Hotel','Pearl Crown Hotel'
 );
-
-
 -- ---------- 3. Quick verification ----------
 SELECT h.Name, COUNT(r.Id) AS RoomCount
 FROM Hotels h
 LEFT JOIN Rooms r ON r.HotelId = h.Id
 GROUP BY h.Id, h.Name
 ORDER BY h.Id;
+
+
+
+
