@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --color-ink: #17241f;
+  --color-forest: #1d3a30;
+  --color-forest-dark: #12241d;
+  --color-mint: #d8ecc9;
+  --color-mint-dark: #b9dba3;
+  --color-cream: #f7f4ec;
+  --color-cream-2: #f1efe6;
+
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(217, 236, 201, 0.45), transparent 34%),
+    linear-gradient(180deg, #f8f5ee 0%, #f5f0e7 100%);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.home-page .page-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: reveal-up 700ms ease forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.hero-title,
+.hero-copy,
+.hero-action,
+.hero-search-enter,
+.hero-image-wrap {
+  opacity: 0;
+  animation: fade-up 800ms ease forwards;
+}
+
+.hero-title {
+  animation-delay: 120ms;
+}
+
+.hero-copy {
+  animation-delay: 220ms;
+}
+
+.hero-action {
+  animation-delay: 320ms;
+}
+
+.hero-search-enter {
+  animation-delay: 420ms;
+}
+
+.hero-image-wrap {
+  animation-name: float-in;
+  animation-delay: 180ms;
+}
+
+.hero-image {
+  animation: scale-in 850ms ease forwards;
+  animation-delay: 220ms;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .home-page .page-reveal,
+  .hero-title,
+  .hero-copy,
+  .hero-action,
+  .hero-search-enter,
+  .hero-image-wrap,
+  .hero-image {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
